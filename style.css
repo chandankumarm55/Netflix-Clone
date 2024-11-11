@@ -421,6 +421,10 @@ button:disabled {
     fill: red
 }
 
+.faq-toggle {
+    display: none;
+}
+
 .faq-section {
     background-color: #121212;
     color: #ffffff;
@@ -470,7 +474,7 @@ button:disabled {
     transition: 0.5s ease-in-out;
 }
 
-.faq-item.active .faq-answer {
+.faq-toggle:checked+.faq-question+.faq-answer {
     display: block;
 }
 
