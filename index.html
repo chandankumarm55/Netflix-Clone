@@ -47,7 +47,7 @@
 
 
 
-        <!-- Hero Section -->
+
         <section class="hero-section">
             <div class="slider-container">
                 <div class="slide">
@@ -74,16 +74,44 @@
 
         <section class="popular">
             <h2 class="popular-heading">Trending Now</h2>
-            <button id="prev-btn-popular" onclick="showPrevPopular()" disabled>&lt;</button>
-            <div class="image-container" id="popular-container"></div>
-            <button id="next-btn-popular" onclick="showNextPopular()">&gt;</button>
+            <button id="prev-btn-popular">&lt;</button>
+            <div class="image-container" id="popular-container">
+
+                <img src="images/1.webp" alt="Image 1">
+                <img src="images/2.webp" alt="Image 2">
+                <img src="images/3.webp" alt="Image 3">
+                <img src="images/4.webp" alt="Image 4">
+                <img src="images/5.webp" alt="Image 5">
+                <img src="images/6.webp" alt="Image 6">
+                <img src="images/7.webp" alt="Image 7">
+                <img src="images/8.webp" alt="Image 8">
+                <img src="images/9.webp" alt="Image 9">
+                <img src="images/10.webp" alt="Image 10">
+                <img src="images/11.webp" alt="Image 11">
+                <img src="images/12.webp" alt="Image 12">
+            </div>
+            <button id="next-btn-popular">&gt;</button>
         </section>
 
         <section class="onnetflix">
             <h2 class="popular-heading">Only on Netflix</h2>
-            <button id="prev-btn-netflix" onclick="showPrevNetflix()" disabled>&lt;</button>
-            <div class="image-container" id="netflix-container"></div>
-            <button id="next-btn-netflix" onclick="showNextNetflix()">&gt;</button>
+            <button id="prev-btn-netflix">&lt;</button>
+            <div class="image-container" id="netflix-container">
+
+                <img src="images/13.webp" alt="Netflix Image 13">
+                <img src="images/14.webp" alt="Netflix Image 14">
+                <img src="images/15.webp" alt="Netflix Image 15">
+                <img src="images/16.webp" alt="Netflix Image 16">
+                <img src="images/17.webp" alt="Netflix Image 17">
+                <img src="images/18.webp" alt="Netflix Image 18">
+                <img src="images/19.webp" alt="Netflix Image 19">
+                <img src="images/20.webp" alt="Netflix Image 20">
+                <img src="images/21.webp" alt="Netflix Image 21">
+                <img src="images/22.webp" alt="Netflix Image 22">
+                <img src="images/23.webp" alt="Netflix Image 23">
+                <img src="images/24.webp" alt="Netflix Image 24">
+            </div>
+            <button id="next-btn-netflix">&gt;</button>
         </section>
 
 
@@ -257,100 +285,6 @@
 
     </div>
     <script>
-        // slide 1 
-        let currentPagePopular = 0;
-        const imagesPerPage = 6;
-        const totalImagesPopular = 12;
-
-        function loadPopularImages() {
-            const imageContainer = document.getElementById("popular-container");
-            imageContainer.innerHTML = '';
-
-            const start = currentPagePopular * imagesPerPage;
-            const end = Math.min(start + imagesPerPage, totalImagesPopular);
-
-            for (let i = start + 1; i <= end; i++) {
-                const img = document.createElement('img');
-                img.src = `images/${i}.webp`;
-                img.alt = `Image ${i}`;
-                imageContainer.appendChild(img);
-            }
-
-            document.getElementById("prev-btn-popular").disabled = currentPagePopular === 0;
-            document.getElementById("next-btn-popular").disabled = end >= totalImagesPopular;
-        }
-
-        function showPrevPopular() {
-            if (currentPagePopular > 0) {
-                currentPagePopular--;
-                loadPopularImages();
-            }
-        }
-
-        function showNextPopular() {
-            if ((currentPagePopular + 1) * imagesPerPage < totalImagesPopular) {
-                currentPagePopular++;
-                loadPopularImages();
-            }
-        }
-        //slide 2
-
-        let currentPageNetflix = 0;
-        const totalImagesNetflix = 12;
-
-        function loadNetflixImages() {
-            const imageContainer = document.getElementById("netflix-container");
-            imageContainer.innerHTML = '';
-
-            const start = currentPageNetflix * imagesPerPage;
-            const end = Math.min(start + imagesPerPage, totalImagesNetflix);
-
-            for (let i = start + 13; i < start + 13 + imagesPerPage && i <= 24; i++) {
-                const img = document.createElement('img');
-                img.src = `images/${i}.webp`;
-                img.alt = `Netflix Image ${i}`;
-                imageContainer.appendChild(img);
-            }
-
-            document.getElementById("prev-btn-netflix").disabled = currentPageNetflix === 0;
-            document.getElementById("next-btn-netflix").disabled = end >= totalImagesNetflix;
-        }
-
-        function showPrevNetflix() {
-            if (currentPageNetflix > 0) {
-                currentPageNetflix--;
-                loadNetflixImages();
-            }
-        }
-
-        function showNextNetflix() {
-            if ((currentPageNetflix + 1) * imagesPerPage < totalImagesNetflix) {
-                currentPageNetflix++;
-                loadNetflixImages();
-            }
-        }
-
-
-        window.onload = function () {
-            loadPopularImages();
-            loadNetflixImages();
-        };
-
-        // toggling
-        const faqQuestions = document.querySelectorAll('.faq-question');
-
-        faqQuestions.forEach((question) => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                faqItem.classList.toggle('active');
-                faqQuestions.forEach((otherQuestion) => {
-                    const otherFaqItem = otherQuestion.parentElement;
-                    if (otherFaqItem !== faqItem) {
-                        otherFaqItem.classList.remove('active');
-                    }
-                });
-            });
-        });
     </script>
 
 </body>
